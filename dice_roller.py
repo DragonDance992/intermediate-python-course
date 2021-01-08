@@ -3,7 +3,7 @@ def main():
   import datetime
   dice_rolls = int(input('How many dice would you like to roll? '))
   dice_size = int(input('How many sides are the dice? '))
-  name = str (input("Name: "))
+  name = str(input("Name: "))
   dice_sum = 0
   rolls = []
   moment = datetime.datetime.now()
