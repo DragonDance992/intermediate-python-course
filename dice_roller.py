@@ -1,8 +1,13 @@
 def main():
   import random
+  import datetime
   dice_rolls = int(input('How many dice would you like to roll? '))
   dice_size = int(input('How many sides are the dice? '))
+  name = str (input("Name: "))
   dice_sum = 0
+  rolls = []
+  moment = datetime.datetime.now()
+  date = datetime.datetime.ctime(moment)
   for i in range (0, dice_rolls):
     roll = random.randint(1,dice_size)
     dice_sum += roll
@@ -12,8 +17,13 @@ def main():
       print(f'You rolled a {roll}! Critical Success!')
     else:
       print(f'You rolled a {roll}')
+    rolls.append(roll)
   print(f'You have rolled a total of {dice_sum}')
-  
+  print('Your rolls have been saved')
+  with open("rolls.txt", "a") as text_file:
+    text_file.write(f"Name:{name}, Size: {dice_size}, Rolls: {dice_rolls} tries,")
+    text_file.write(f"Rolls: {rolls} Date: {date}")
+    text_file.write("\n")
 
 if __name__== "__main__":
   main() 
